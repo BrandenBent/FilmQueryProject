@@ -170,6 +170,35 @@ public class Film {
 		builder.append(rating);
 //		builder.append(", specialFeatures=");
 //		builder.append(specialFeatures);
+//		SQL USED:
+//		SELECT language_id, language.name 
+//		FROM film JOIN language 
+//		WHERE film.language_id = language.id;
+		switch (languageId) {
+		case 1:
+			builder.append("\tThis movie is in ENGLISH");
+			break;
+		case 2:
+			builder.append("\tThis movie is in ITALIAN");
+			
+			break;
+		case 3:
+			builder.append("\tThis movie is in JAPANESE");
+			
+			break;
+		case 4:
+			builder.append("\tThis movie is in MANDARIN");
+			
+			break;
+		case 5:
+			builder.append("\tThis movie is in FRENCH");
+			
+			break;
+
+		default:
+			builder.append("\tI'm sorry that language has not been added to our databse");
+			break;
+		}
 //		builder.append("]");
 		return builder.toString();
 	}
