@@ -152,25 +152,25 @@ public class Film {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Film [title=");
-		builder.append(title);
-		builder.append(", description=");
-		builder.append(description);
-		builder.append(", releaseYear=");
+//		builder.append("Film [title=");
+		builder.append(title + " --- ");
+		builder.append("DESCRIPTION:  ");
+		builder.append(description + " --- ");
+		builder.append("RELEASE YEAR --- ");
 		builder.append(releaseYear);
-		builder.append(", rentalDuration=");
-		builder.append(rentalDuration);
-		builder.append(", rentalRate=");
-		builder.append(rentalRate);
-		builder.append(", length=");
-		builder.append(length);
-		builder.append(", replacementCost=");
-		builder.append(replacementCost);
-		builder.append(", rating=");
+//		builder.append(", rentalDuration=");
+//		builder.append(rentalDuration);
+//		builder.append(", rentalRate=");
+//		builder.append(rentalRate);
+//		builder.append(", length=");
+//		builder.append(length);
+//		builder.append(", replacementCost=");
+//		builder.append(replacementCost);
+		builder.append(" RATED: ");
 		builder.append(rating);
-		builder.append(", specialFeatures=");
-		builder.append(specialFeatures);
-		builder.append("]");
+//		builder.append(", specialFeatures=");
+//		builder.append(specialFeatures);
+//		builder.append("]");
 		return builder.toString();
 	}
 
