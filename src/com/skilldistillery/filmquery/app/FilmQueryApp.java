@@ -41,7 +41,8 @@ public class FilmQueryApp {
 			System.out.println("Enter \"1\" to look up a movie by its ID#");
 			System.out.println("Enter \"2\" to look up movie by a keyword");
 			System.out.println("Enter \"3\" to exit the application.");
-			choice = input.nextInt();
+			try {
+				choice = input.nextInt();
 			switch (choice) {
 			case 1:
 				System.out.println("Please enter a movie's ID# to look it up!");
@@ -71,6 +72,10 @@ public class FilmQueryApp {
 				break;
 			default:
 				System.out.println("Please enter a valid option");
+			}
+			} catch (Exception e) {
+				System.out.println("Invalid Input");
+				input.next();
 			}
 		} while (choice != 3);
 		System.out.println("success");
