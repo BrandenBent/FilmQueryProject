@@ -34,8 +34,6 @@ public class Film {
 		this.rating = rating;
 		this.specialFeatures = specialFeatures;
 	}
-	
-	
 
 	public Film(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
 			int rentalRate, int length, double replacementCost, String rating, String specialFeatures,
@@ -54,8 +52,6 @@ public class Film {
 		this.specialFeatures = specialFeatures;
 		this.actors = actors;
 	}
-
-
 
 	public Film() {
 
@@ -180,19 +176,19 @@ public class Film {
 			break;
 		case 2:
 			builder.append("\tThis movie is in ITALIAN");
-			
+
 			break;
 		case 3:
 			builder.append("\tThis movie is in JAPANESE");
-			
+
 			break;
 		case 4:
 			builder.append("\tThis movie is in MANDARIN");
-			
+
 			break;
 		case 5:
 			builder.append("\tThis movie is in FRENCH");
-			
+
 			break;
 
 		default:
@@ -200,9 +196,11 @@ public class Film {
 			break;
 		}
 //		builder.append("]");
-		for (Actor actor : actors) {
-			builder.append(actor);
-			
+		if (actors != null) {
+			for (Actor actor : actors) {
+				builder.append(actor);
+
+			}
 		}
 		return builder.toString();
 	}
@@ -273,17 +271,12 @@ public class Film {
 		return true;
 	}
 
-
-
 	public List<Actor> getActors() {
 		return actors;
 	}
 
-
 	public void setActors(List<Actor> actors) {
 		this.actors = actors;
 	}
-	
-	
 
 }
