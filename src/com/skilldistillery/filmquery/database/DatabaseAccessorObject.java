@@ -50,6 +50,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 				film = new Film(id, title, description, releaseYear, languageId, rentalDuration, rentalRate, length,
 						replacementCost, rating, specialFeatures);
+				film.setActors(findActorById(filmId));
 			}
 
 			rs.close();
@@ -63,12 +64,13 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	}
 
 	@Override
-	public Actor findActorById(int actorId) {
+	public List<Actor> findActorById(int actorId) {
 		Actor actor = null;
+		List<Actor> actors = new ArrayList<>();
 		Connection conn;
 		try {
 			conn = DriverManager.getConnection(URL, userName, password);
-			String sql = "SELECT actor.id, actor.first_name, actor.last_name "
+			String sql = "SELECT actor.id, actor.first_name, actor.last_name  "
 					+ 	 "FROM actor WHERE actor.id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, actorId);
@@ -79,6 +81,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				String lastName = rs.getString("last_name");
 
 				actor = new Actor(id, firstName, lastName);
+				actors.add(actor);
 			}
 
 			rs.close();
@@ -88,7 +91,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return actor;
+		return actors;
 	}
 
 	@Override
@@ -132,7 +135,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			conn = DriverManager.getConnection(URL, userName, password);
 			String sql = "SELECT film.id, film.title, film.description, film.release_year, film.language_id, film.rental_duration,"
 					+ 	 	" film.rental_rate, film.length, film.replacement_cost, film.rating, film.special_features "
-					+ 	 "FROM film WHERE title LIKE ? OR description LIKE ?";
+					+ 	 	"FROM film WHERE title LIKE ? OR description LIKE ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, ("%" + keyword + "%"));
 			stmt.setString(2, ("%" + keyword + "%"));

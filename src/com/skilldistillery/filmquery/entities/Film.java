@@ -200,6 +200,10 @@ public class Film {
 			break;
 		}
 //		builder.append("]");
+		for (Actor actor : actors) {
+			builder.append(actor);
+			
+		}
 		return builder.toString();
 	}
 
@@ -268,5 +272,18 @@ public class Film {
 			return false;
 		return true;
 	}
+
+
+
+	public List<Actor> getActors() {
+		return actors;
+	}
+
+
+	public void setActors(List<Actor> actors) {
+		this.actors = actors;
+	}
+	
+	
 
 }
