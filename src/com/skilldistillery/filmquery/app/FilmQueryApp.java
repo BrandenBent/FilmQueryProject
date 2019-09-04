@@ -47,10 +47,16 @@ public class FilmQueryApp {
 			case 1:
 				System.out.println("Please enter a movie's ID# to look it up!");
 				int id = input.nextInt();
-				if (id > 1000 || id < 1) {
-					System.out.println("Our inventory contains 1000 titles, 1-1000. Try again.");
+//				if (id > 1000 || id < 1) {
+//					System.out.println("Our inventory contains 1000 titles, 1-1000. Try again.");
+//				} else {
+//					System.out.println(db.findFilmById(id));
+//				}
+				Film film = db.findFilmById(id);
+				if(film == null) {
+					System.out.println("This film does not exist in our database");
 				} else {
-					System.out.println(db.findFilmById(id));
+					System.out.println(film);
 				}
 				break;
 			case 2:
@@ -62,8 +68,8 @@ public class FilmQueryApp {
 					System.out.println("There are no movies with those keywords");
 					break;
 				} else {
-					for (Film film : films) {
-						System.out.println(film);
+					for (Film film2 : films) {
+						System.out.println(film2);
 					}
 				}
 				break;

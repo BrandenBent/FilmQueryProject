@@ -198,8 +198,7 @@ public class Film {
 //		builder.append("]");
 		if (actors != null) {
 			for (Actor actor : actors) {
-				builder.append(actor);
-
+				builder.append(actor.toString());
 			}
 		}
 		return builder.toString();
